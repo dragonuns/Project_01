@@ -1,6 +1,6 @@
-
+const path = require("path");
 const fs = require('fs');
-fs.readFile(__dirname+"/成绩.txt",'utf8',function(err,result){
+fs.readFile( path.join( __dirname,"/成绩.txt"),'utf8',function(err,result){
     // console.log(err);
     if(err){
         console.log("读取文件失败!\n"+err.mesage);
@@ -17,7 +17,7 @@ fs.readFile(__dirname+"/成绩.txt",'utf8',function(err,result){
    })
 const newStr = arrNew.join("\r\n");
 
-fs.writeFile(__dirname+"/成绩_ok.txt",newStr,function(err,result){
+fs.writeFile(path.join(__dirname,"/成绩_ok.txt"),newStr,function(err,result){
     if(err){
         console.log("写入文件失败!\n"+err.mesage);
     }
