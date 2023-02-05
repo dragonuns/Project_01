@@ -1,5 +1,14 @@
 const path = require("path");
 const fs = require('fs');
+const http = require("http")
+const server = http.createServer()
+server.on("request",req=>{
+    const str = "Your request url is${req.url} ,requset method is ${req.method}"
+    console.log(str);
+})
+server.listen(8080,()=>{
+    console.log('server running at http://127.0.0.1');
+})
 fs.readFile( path.join( __dirname,"/成绩.txt"),'utf8',function(err,result){
     // console.log(err);
     if(err){
