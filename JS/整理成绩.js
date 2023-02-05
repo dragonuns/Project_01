@@ -2,9 +2,11 @@ const path = require("path");
 const fs = require('fs');
 const http = require("http")
 const server = http.createServer()
-server.on("request",req=>{
+server.on("request",(req,res)=>{
     const str = "Your request url is${req.url} ,requset method is ${req.method}"
     console.log(str);
+    res.setHeader("Content-Type","text/html",'charset=utf-8')
+    res.end(str);
 })
 server.listen(8080,()=>{
     console.log('server running at http://127.0.0.1');
